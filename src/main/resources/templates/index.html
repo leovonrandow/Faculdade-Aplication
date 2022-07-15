@@ -1,0 +1,33 @@
+
+<html>
+<head>
+    <title>CRUD Aluno</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+<body>
+<a href="insert">Inserir novo</a> | <a href="read">Ver todos</a> <br> <br>
+<table style="width:100%" class="highlight">
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>E-mail</th>
+        <th>Faculdade</td>
+        <th>Excluir?</th>
+        <th>Alterar?</th>
+    </tr>
+    <tr th:each="aluno : ${alunos}">
+        <td th:text="${aluno.id}"></td>
+        <td th:text="${aluno.nome}"></td>
+        <td th:text="${aluno.email}"></td>
+        <td th:text="${aluno.faculdade.name}"></td>
+        <td><a th:href="@{/delete(id=${aluno.id})}">Deletar</a></td>
+        <td><a th:href="@{/update(id=${aluno.id})}">Alterar</a></td>
+    </tr>
+</table>
+</body>
+</html>
